@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.SupplierDao">
+
+    <cache type="com.baizhi.cache.RedisCache"/>
+
+    <select id="selectAll" resultType="Supplier">
+        select * from supplier limit ${(page-1)*rows},#{rows}
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from supplier
+    </select>
+
+    <insert id="add" parameterType="Supplier">
+        insert into supplier values (#{id},#{name},#{leader},#{phone},#{createDate})
+    </insert>
+
+    <update id="update" parameterType="Supplier">
+        update supplier set name=#{name},leader=#{leader},phone=#{phone} where id=#{id}
+    </update>
+
+    <delete id="deleteByID" parameterType="java.lang.String">
+        delete from supplier where id=#{id}
+    </delete>
+</mapper>

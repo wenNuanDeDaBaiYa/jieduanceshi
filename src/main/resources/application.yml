@@ -1,0 +1,26 @@
+server:
+  port: 8085
+  servlet:
+    jsp:
+      init-parameters:
+        development: true #开启jsp的部署
+    context-path: /sb
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:      #数据源
+    type: org.apache.commons.dbcp.BasicDataSource #指定连接池
+    driver-class-name: com.mysql.jdbc.Driver #连接数据库的驱动
+    url: jdbc:mysql://localhost:3306/kg #连接数据库的url
+    username: root
+    password: root
+  redis:
+    host: 192.168.5.19
+    database: 0
+    port: 7000
+mybatis:
+  type-aliases-package: com.baizhi.entity #取别名
+  mapper-locations: classpath:com/baizhi/mapper/*Mapper.xml  #mapper文件的注册
+
