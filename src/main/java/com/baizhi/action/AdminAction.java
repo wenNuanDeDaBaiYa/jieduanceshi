@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
+//哈哈哈哈，第一次测试成功了！！！
+
 @Controller
 @RequestMapping("/admin")
 public class AdminAction {
